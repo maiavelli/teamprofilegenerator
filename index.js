@@ -8,8 +8,8 @@ const renderHTML = require('./src/renderHTML');
 
 
 // add manager
-function addManager() {
-    inquirer.prompt([
+inquirer
+    .prompt([
         {
             type: "input",
             name: "managerName",
@@ -34,7 +34,28 @@ function addManager() {
             message: "What is the team manager's office number?"
         }
     ])
-};
+    .then(data => {
+        const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOfficeNumber);
+    })
+    .then chooseTeam();
+    
+
+
+// menu to choose which employee to add or to finish building team
+function chooseTeam() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "employeeType",
+            message: "Choose an employee to add:",
+            choices: [
+                "engineer",
+                "intern",
+                "I'm finished building my team!"
+            ]
+        }
+    ])
+}
 
 // add engineer 
 function addEngineer() {
@@ -93,3 +114,8 @@ function addIntern() {
         }
     ])
 };
+
+
+function init() {
+
+}
