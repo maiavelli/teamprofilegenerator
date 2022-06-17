@@ -1,12 +1,12 @@
 {
     "name": "teamprofilegenerator",
     "version": "1.0.0",
-    "description": "",
+    "description": "a command line application used to generate an HTML team roster",
     "main": "index.js",
     "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
     },
-    "author": "",
+    "author": "maiavelli",
     "license": "ISC",
     "dependencies": {
     "inquirer": "^6.3.1",
