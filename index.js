@@ -5,7 +5,9 @@ const Intern = require('./lib/Intern');
 
 const inquirer = require('inquirer');
 const renderHTML = require('./src/renderHTML');
+const fs = require('fs');
 
+var fileName = teamProfile;
 
 // add manager
 inquirer
@@ -36,8 +38,8 @@ inquirer
     ])
     .then(data => {
         const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOfficeNumber);
-    })
-    .then chooseTeam();
+    });
+    return chooseTeam();
     
 
 
@@ -55,6 +57,11 @@ function chooseTeam() {
             ]
         }
     ])
+    .then(data => { 
+        if(data.employeeType === "engineer") 
+        return addEngineer(); 
+        else if(data.employeeType === "intern")
+        return addIntern(); })
 }
 
 // add engineer 
