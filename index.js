@@ -7,8 +7,11 @@ const inquirer = require('inquirer');
 const renderHTML = require('./src/renderHTML');
 const fs = require('fs');
 const path = require('path');
+
+//file name variable
 var fileName = teamProfile;
 
+//array to push team members into
 const teamMembers = [];
 
 // add manager
@@ -49,7 +52,7 @@ inquirer
             message: "What is the team manager's email address?",
             validate: emailInput => {
                 if (emailInput) {
-                    return true;
+                    return true
                 } else {
                     console.log('Please enter an email address!')
                     return false
@@ -63,7 +66,7 @@ inquirer
             message: "What is the team manager's office number?",
             validate: officeInput => {
                 if (officeInput) {
-                    return true;
+                    return true
                 } else {
                     console.log('Please enter an office number!')
                     return false
@@ -72,32 +75,12 @@ inquirer
         }
     ])
     .then(answers => {
+        console.log(answers);
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
+        teamMembers.push(manager);
+        chooseTeam();
     });
-    return chooseTeam();
-}
-
-
-// menu to choose which employee to add or to finish building team
-function chooseTeam() {
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "employeeType",
-            message: "Choose an employee to add:",
-            choices: [
-                "engineer",
-                "intern",
-                "I'm finished building my team!"
-            ]
-        }
-    ])
-    .then(answers => { 
-        if(data.employeeType === "engineer") 
-        return addEngineer(); 
-        else if(data.employeeType === "intern")
-        return addIntern(); })
-}
+};
 
 // add engineer 
 function addEngineer() {
@@ -158,6 +141,12 @@ function addEngineer() {
             }
         }
     ])
+    .then(answers => {
+        console.log(answers);
+        const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
+        teamMembers.push(engineer);
+        chooseTeam();
+    })
 };
 
 // add intern
@@ -219,8 +208,42 @@ function addIntern() {
             }
         }
     ])
+    .then(answers => {
+        console.log(answers);
+        const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+        teamMembers.push(intern);
+        chooseTeam();
+    })
 };
 
+
+
+// menu to choose which employee to add or to finish building team
+function chooseTeam() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "menu",
+            message: "Choose an employee to add:",
+            choices: [
+                "engineer",
+                "intern",
+                "I'm finished building my team!"
+            ]
+        }
+    ])
+    .then(userChoice => { 
+        switch (userChoice.menu) {
+            case "engineer":
+                addEngineer();
+                break;
+            case "intern":
+                addIntern();
+            default:
+                buildTeam();
+        }
+});
+};
 
 function init() {
 
