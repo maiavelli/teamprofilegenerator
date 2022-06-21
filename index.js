@@ -8,9 +8,6 @@ const renderHTML = require('./src/renderHTML');
 const fs = require('fs');
 const path = require('path');
 
-//file name variable
-var fileName = teamProfile;
-
 //array to push team members into
 const teamMembers = [];
 
@@ -223,7 +220,7 @@ function chooseTeam() {
     inquirer.prompt([
         {
             type: "list",
-            name: "menu",
+            name: "employeeType",
             message: "Choose an employee to add:",
             choices: [
                 "engineer",
@@ -233,7 +230,7 @@ function chooseTeam() {
         }
     ])
     .then(userChoice => { 
-        switch (userChoice.menu) {
+        switch (userChoice.employeeType) {
             case "engineer":
                 addEngineer();
                 break;
@@ -245,6 +242,12 @@ function chooseTeam() {
 });
 };
 
-function init() {
+// function to generate html file
+function buildTeam() {
+    fs.writeFile('sample.html', renderHTML(teamMembers), function (err) {
+        err ? console.error(err) : console.log('html generated!')
+    })
+};
 
-}
+// start app
+addManager();

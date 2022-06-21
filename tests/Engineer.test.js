@@ -21,7 +21,7 @@ test('test if we can retrieve engineer email using getId() method', () => {
 });
 
 test('test if we can retrieve engineer office number using getGithub() method', () => {
-    expect(engineer.getOfficeNumber()).toBe('lisasgithub');
+    expect(engineer.getGithub()).toBe('lisasgithub');
 });
 
 test('test if we can retrieve engineer role using getRole() method', () => {
