@@ -8,51 +8,51 @@ const generateTeam = (team) => {
     const generateManager = manager => {
         console.log(manager);
         let managerHTML = `
-        <div class = "card">
-            <header class = "card-header"
-            <span class = "icon">
-                <i class="fa-solid fa-mug-hot"></i>
-            </span>
-                <p class = "card-header title">
-                ${manager.name}
-                </p>
-            </header
+            <div class = "column is-one-third ">
+                <div class = "card">
+                    <header class = "card-header has-background-primary-dark">
+                    <span class = "icon"> <i class="fa-solid fa-mug-hot"></i> </span>
+                    <p class = "card-header title">${manager.name}</p>
+                    </header>
 
-            <div class = "card-content">
-                <div class = "content">
-                    <ul>
-                        <li> ID: ${manager.id} </li>
-                        <li> email: <a href = "mailto:${manager.email}">${manager.email}</a> 1</li>
-                        <li> office number: ${manager.officeNumber} </li>
-                    </ul>
+                    <div class = "card-content">
+                        <div class = "content">
+                            <ul>
+                                <li> ID: ${manager.id} </li>
+                                <li> Email: <a href = "mailto:${manager.email}">${manager.email}</a></li>
+                                <li> Office Number: ${manager.officeNumber} </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+            </div>
         `;
 
         htmlElements.push(managerHTML);
     };
 
     //function to create html element for engineer
-    const generateEnginer = engineer => {
+    const generateEngineer = engineer => {
         console.log(engineer);
         let engineerHTML = `
-        <div class = "card">
-            <header class = "card-header"
-            <span class = "icon">
-                <i class="fa-solid fa-glasses"></i>
-            </span>
-                <p class = "card-header title">
-                ${engineer.name}
-                </p>
-            </header
+            <div class = "column is-one-third ">
+                <div class = "card">
+                    <header class = "card-header has-background-primary">
+                    <span class = "icon"> <i class="fa-solid fa-glasses"></i> </span>
+                    <p class = "card-header title">${engineer.name}</p>
+                    </header>
 
-            <div class = "card-content">
-                <div class = "content">
-                    <ul>
-                        <li> ID: ${engineer.id} </li>
-                        <li> email: <a href = "mailto:${engineer.email}">${engineer.email}</a> 1</li>
-                        <li> github: <a href = "https://github.com/${engineer.github}</a> ${engineer.github} </li>
-                    </ul>
+                    <div class = "card-content">
+                        <div class = "content">
+                            <ul>
+                                <li> ID: ${engineer.id} </li>
+                                <li> Email: <a href = "mailto:${engineer.email}">${engineer.email}</a></li>
+                                <li> GitHub: ${engineer.github} </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+            </div>
         `;
 
         htmlElements.push(engineerHTML);
@@ -62,24 +62,24 @@ const generateTeam = (team) => {
         const generateIntern = intern => {
             console.log(intern);
             let internHTML = `
-            <div class = "card">
-                <header class = "card-header"
-                <span class = "icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </span>
-                    <p class = "card-header title">
-                    ${intern.name}
-                    </p>
-                </header
-    
-                <div class = "card-content">
-                    <div class = "content">
-                        <ul>
-                            <li> ID: ${intern.id} </li>
-                            <li> email: <a href = "mailto:${intern.email}">${intern.email}</a> 1</li>
-                            <li> school: ${intern.school} </li>
-                        </ul>
+                <div class = "column is-one-third ">
+                    <div class = "card">
+                        <header class = "card-header has-background-primary-light">
+                        <span class = "icon"> <i class="fa-solid fa-graduation-cap"></i> </span>
+                        <p class = "card-header title">${intern.name}</p>
+                        </header>
+
+                        <div class = "card-content">
+                            <div class = "content">
+                                <ul>
+                                    <li> ID: ${intern.id} </li>
+                                    <li> Email: <a href = "mailto:${intern.email}">${intern.email}</a></li>
+                                    <li> School: ${intern.school} </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                </div>
             `;
 
             htmlElements.push(internHTML);
@@ -117,18 +117,17 @@ module.exports = team => {
         </head>
     
         <body>
-            <section class = "hero is-primary">
+            <section class = "hero has-background-primary-dark mb-3">
                 <div class = "hero-body has-text-centered">
                     <h1 class = "title is-1">My Team</h1>
                 </div>
             </section>
 
-            <section> 
-            ${generateTeam(team)}
+            <section class = "columns is-centered is-multiline"> 
+                ${generateTeam(team)}
             </section>
         </body>
     </html>
     `  
 };
 
-module.exports = renderHTML;
