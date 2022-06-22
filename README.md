@@ -7,10 +7,15 @@ My motivation when creating this project was to further challenge my understandi
 
 ## Table of Contents
 -[Installation](#installation)
+
 -[Usage](#usage)
+
 -[Demo](#demo)
+
 -[Tests](#tests)
+
 -[Questions](#questions)
+
 -[License](#license)
 
 ## Installation
