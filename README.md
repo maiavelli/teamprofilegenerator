@@ -58,7 +58,7 @@ For more information and to see more of my work, please visit my [GitHub](https:
 For any additional questions or general inquiries, you can contact me at maiacamilledavis@gmail.com.
 
 ## License
-Copyright (c) `<2022>`, `<Maia Davis>`
+Copyright (c) `2022`, `Maia Davis`
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
