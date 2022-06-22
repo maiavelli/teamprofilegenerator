@@ -53,7 +53,7 @@ Below is a short demonstration of how to run the tests:
 ![demo-vid](./assets/testsdemo.gif)
 
 ## Questions 
-For more information and to see more of my work, please visit my GitHub: (https://github.com/maiavelli/)
+For more information and to see more of my work, please visit my [GitHub](https://github.com/maiavelli/).
 
 For any additional questions or general inquiries, you can contact me at maiacamilledavis@gmail.com.
 
