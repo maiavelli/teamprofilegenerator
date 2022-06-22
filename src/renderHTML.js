@@ -12,7 +12,8 @@ const generateTeam = (team) => {
                 <div class = "card">
                     <header class = "card-header has-background-primary-dark">
                     <span class = "icon"> <i class="fa-solid fa-mug-hot"></i> </span>
-                    <p class = "card-header title">${manager.name}</p>
+                    <p class = "card-header-title is-size-3">${manager.name}</p>
+                    <p class = "card-header-title is-centered is-size-4">${manager.getRole()}</p>
                     </header>
 
                     <div class = "card-content">
@@ -39,7 +40,8 @@ const generateTeam = (team) => {
                 <div class = "card">
                     <header class = "card-header has-background-primary">
                     <span class = "icon"> <i class="fa-solid fa-glasses"></i> </span>
-                    <p class = "card-header title">${engineer.name}</p>
+                    <p class = "card-header-title is-size-3">${engineer.name}</p>
+                    <p class = "card-header-title is-centered is-size-4">${engineer.getRole()}</p>
                     </header>
 
                     <div class = "card-content">
@@ -66,7 +68,8 @@ const generateTeam = (team) => {
                     <div class = "card">
                         <header class = "card-header has-background-primary-light">
                         <span class = "icon"> <i class="fa-solid fa-graduation-cap"></i> </span>
-                        <p class = "card-header title">${intern.name}</p>
+                        <p class = "card-header-title is-size-3">${intern.name}</p>
+                        <p class = "card-header-title is-centered is-size-4">${intern.getRole()}</p>
                         </header>
 
                         <div class = "card-content">
