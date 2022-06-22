@@ -3,13 +3,19 @@
     "version": "1.0.0",
     "description": "a command line application used to generate an HTML team roster",
     "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
     "scripts": {
-    "test": "jest"
+        "test": "jest"
     },
     "author": "maiavelli",
     "license": "ISC",
     "dependencies": {
-    "inquirer": "^6.3.1",
-    "package.json": "^2.0.1"
+        "inquirer": "^6.3.1",
+        "package.json": "^0.0.0"
+    },
+    "devDependencies": {
+        "jest": "^28.1.1"
     }
 }

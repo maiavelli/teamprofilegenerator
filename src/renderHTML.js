@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const generateTeam = (team) => {
     console.log(team);
 
@@ -7,7 +5,7 @@ const generateTeam = (team) => {
     const htmlElements = [];
 
     //function to create html element for manager
-    const generateManager(manager) {
+    const generateManager = manager => {
         console.log(manager);
         let managerHTML = `
         <div class = "card">
@@ -34,7 +32,7 @@ const generateTeam = (team) => {
     };
 
     //function to create html element for engineer
-    const generateEnginer(engineer) {
+    const generateEnginer = engineer => {
         console.log(engineer);
         let engineerHTML = `
         <div class = "card">
@@ -61,7 +59,7 @@ const generateTeam = (team) => {
     };
 
         //function to create html element for intern
-        const generateIntern(intern) {
+        const generateIntern = intern => {
             console.log(intern);
             let internHTML = `
             <div class = "card">
@@ -87,14 +85,22 @@ const generateTeam = (team) => {
             htmlElements.push(internHTML);
 };
 
+    //create a loop for all of the employees
+    for (let i = 0; i < team.length; i++) {
+        if (team[i].getRole() === "Manager") {
+            generateManager(team[i]);
+        }
+        if (team[i].getRole() === "Engineer") {
+            generateEngineer(team[i]);
+        }
+        if (team[i].getRole() === "Intern") {
+            generateIntern(team[i]);
+        }
+    }
 
-
-
-
-
-
-
-
+    // return html blocks
+    return htmlElements.join('');
+};
 
 
 module.exports = team => {
@@ -122,9 +128,7 @@ module.exports = team => {
             </section>
         </body>
     </html>
-    `
+    `  
+};
 
-    
-}
-
-const generateManager = manager
+module.exports = renderHTML;

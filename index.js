@@ -6,7 +6,6 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const renderHTML = require('./src/renderHTML');
 const fs = require('fs');
-const path = require('path');
 
 //array to push team members into
 const teamMembers = [];
@@ -242,10 +241,17 @@ function chooseTeam() {
 });
 };
 
-// function to generate html file
-function buildTeam() {
-    fs.writeFile('sample.html', renderHTML(teamMembers), function (err) {
+// functions to generate html file
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, function (err) {
         err ? console.error(err) : console.log('html generated!')
+    })
+};
+
+function buildTeam(teamMembers) {
+    return generateHTML(teamMembers)
+    .then(pageHTML => {
+        return writeFile(pageHTML);
     })
 };
 
